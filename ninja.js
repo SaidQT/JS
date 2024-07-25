@@ -1,9 +1,9 @@
 class Ninja{
-    constructor(name){
+    constructor(name, health=90,speed=3,strength=3){
         this.name=name;
-        this.health=90;
-        this.speed=3;
-        this.strength=3;
+        this.health=health;
+        this.speed=speed;
+        this.strength=strength;
     }
     sayName(){
         console.log(`Ninja's name: ${this.name}`);
@@ -23,10 +23,7 @@ class Ninja{
 class Sensei extends Ninja{
   
     constructor(name){
-        super(name);
-        this.health=200;
-        this.speed=10;
-        this.strength=10;
+        super(name, 200, 10, 10);
         this.wisdom=10;
     }
     speakWisdom(){
