@@ -29,7 +29,7 @@ class Sensei extends Ninja{
         this.strength=10;
         this.wisdom=10;
     }
-    callWisdom(){
+    speakWisdom(){
         super.drinkSake();
         console.log("What one programmer can do in one month, two programmers can do in two months.")
     }
