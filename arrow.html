@@ -40,15 +40,13 @@
             setBackgroundColorById("body", "white");
         }
         var getValueFromId= id =>  document.getElementById(id).value;
-          
         
         var setBackgroundColorById= (id, color) => document.getElementById(id).style = "background-color: " + color;
             
-        var mouseOverFunction= el => 
-            el.style = "background-color: black";
-        document.getElementById("set-color").onclick= () => {
-            setBackgroundColorById("set-color", getValueFromId('color-input'))
-        }
+        var mouseOverFunction= el => el.style = "background-color: black";
+
+        document.getElementById("set-color").onclick= () => setBackgroundColorById("set-color", getValueFromId('color-input'))
+        
     </script>
 </body>
 </html>
