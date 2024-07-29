@@ -3,8 +3,8 @@ import PersonCard from './components/PersonCard';
 function App() {
   return (
     <div className="App">
-      <PersonCard firstName={ "Jane" } lastName={ "Doe" } hairColor= { "Black" }/>
-      <PersonCard firstName={ "John" } lastName={ "Smith" } hairColor= { "Brown" }/>
+      <PersonCard firstName={ "Jane" } age = {45} lastName={ "Doe" } hairColor= { "Black" }/>
+      <PersonCard firstName={ "John" } age = {88} lastName={ "Smith" } hairColor= { "Brown" }/>
     </div>
   );
 }
