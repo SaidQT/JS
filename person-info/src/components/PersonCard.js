@@ -7,12 +7,12 @@ const PersonCard = (props) => {
     const handleClick = () => {
         setAge(age + 1);
     }
-
+    const { lastName, firstName, hairColor } = props;
     return (
         <div>
-            <h1>{props.lastName}, {props.firstName}</h1>
+            <h1>{lastName}, {firstName}</h1>
             <p>Age: {age}</p> 
-            <p>Hair color: {props.hairColor}</p>
+            <p>Hair color: { hairColor }</p>
             <button onClick={handleClick}>Birthday Button for {props.firstName} {props.lastName}</button>
         </div>
     );
