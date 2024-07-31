@@ -5,7 +5,7 @@ const UserForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confPassword, setConfPassword] = useState("");
-    const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState(([]));
     const [containsErrors, setContainsErrors] = useState(false);
 
     const handleFirst = (e) => {
@@ -16,10 +16,12 @@ const UserForm = () => {
             newErrors[0] = "First name is required!";
         } else if (value.length < 2) {
             newErrors[0] = "First name must be at least 2 characters";
+            
         } else {
             newErrors[0] = "";
         }
         setErrors(newErrors);
+        console.log(newErrors);
         setContainsErrors(newErrors.some(error => error !== ""));
     };
 
@@ -95,30 +97,30 @@ const UserForm = () => {
             <form onSubmit={ createUser }>
                 <div className="d-flex justify-content-between bg-light py-3 px-4 my-3 text-black-50 rounded border border-1">
                     <label>First name: </label>
-                    <input type="text" onChange={ handleFirst } />
+                    <input type="text" onChange={ handleFirst }/>
                 </div>
-                <p class="text-danger">{errors[0]}</p>
+                <p className="text-danger">{errors[0]}</p>
                 <div className="d-flex justify-content-between bg-light py-3 px-4 my-3 text-black-50 rounded border border-1">
                     <label>Last name: </label>
                     <input type="text" onChange={ handleLast } />
                 </div>
-                <p class="text-danger">{errors[1]}</p>
+                <p className="text-danger">{errors[1]}</p>
                 <div className="d-flex justify-content-between bg-light py-3 px-4 my-3 text-black-50 rounded border border-1">
                     <label>Email Address: </label>
                     <input type="text" onChange={ handleEmail } />
                 </div>
-                <p class="text-danger">{errors[2]}</p>
+                <p className="text-danger">{errors[2]}</p>
                 <div className="d-flex justify-content-between bg-light py-3 px-4 my-3 text-black-50 rounded border border-1">
                     <label>Password: </label>
                     <input type="text" onChange={ handlePassword } />    
                 </div>
-                <p class="text-danger">{errors[3]}</p>
+                <p className="text-danger">{errors[3]}</p>
                 <div className="d-flex justify-content-between bg-light py-3 px-4 my-3 text-black-50 rounded border border-1">
                     <label>Confirm Password: </label>
                     <input type="text" onChange={ handleConf } /> 
                 </div>
-                <p class="text-danger">{errors[4]}</p>
-                <button class= "btn btn-light" type="submit">Create User</button>
+                <p className="text-danger">{errors[4]}</p>
+                <button className= "btn btn-light" type="submit">Create User</button>
             </form>
         </>
     );
