@@ -5,19 +5,13 @@ const Box = () => {
     const [color, setColor] = useState("");
     const [colorError, setColorError] = useState("");
     const [colors, setColors] = useState([]);
-    
+
 
     const handleColor = (e) => {
         e.preventDefault();
-        if (color.length < 1) {
-            setColorError("Color is required!");
-        } else if (color.length < 3) {
-            setColorError("Color must be 3 characters or longer!");
-        } else {
-            setColorError("");
-            setColors([...colors, color]);
-            setColor(""); 
-        }
+        setColorError("");
+        setColors([...colors, color]);
+        setColor("");
     }
 
     const handleChange = (e) => {
@@ -33,10 +27,10 @@ const Box = () => {
 
     return (
         <div>
-            <form onSubmit={ handleColor }>
+            <form onSubmit={handleColor}>
                 <div>
                     <label>Color: </label>
-                    <input type="text" value={ color } onChange={ handleChange } />
+                    <input type="text" value={color} onChange={handleChange} />
                     {
                         colorError && <p>{colorError}</p>
                     }
