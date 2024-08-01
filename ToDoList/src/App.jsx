@@ -4,14 +4,17 @@ import Task from './components/Task.jsx'
 import Form from './components/Form.jsx'
 
 function App() {
-  const [tasks,setTasks] = useState([])
-  const addTask = ( task ) => {
+  const [tasks, setTasks] = useState([])
+  const addTask = (task) => {
     setTasks([...tasks, task])
-}
+  }
+  const removeTask = (taskToRemove) => {
+    setTasks(tasks.filter(task => task !== taskToRemove));
+  }
   return (
     <>
-      <Form onNewTask = { addTask }></Form>
-      <Task task = { tasks }></Task>
+      <Form onNewTask={addTask}></Form>
+      <Task task={tasks} remove={ removeTask }></Task>
     </>
   )
 }
