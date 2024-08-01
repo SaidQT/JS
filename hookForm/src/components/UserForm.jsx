@@ -16,7 +16,6 @@ const UserForm = () => {
             newErrors[0] = "First name is required!";
         } else if (value.length < 2) {
             newErrors[0] = "First name must be at least 2 characters";
-            
         } else {
             newErrors[0] = "";
         }
