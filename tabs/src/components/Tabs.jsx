@@ -29,7 +29,7 @@ const Tabs = () => {
             </div>
             {clicked ?
                 <div className="mt-3 border border-seconday text-start" style={ styling }> 
-                     <p className='font-weight-larger'>{ message }</p> 
+                     <p className='fw-bold'>{ message }</p> 
                 </div>
                 :
                 ""
