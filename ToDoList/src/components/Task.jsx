@@ -1,20 +1,19 @@
-import { useState } from 'react';
 
 const Task = (props) => {
-    const [done, setDone] = useState(false);
     const tasks = props.task;
+    
      
     return (
         <>
             {tasks.map((item, index) => (
                 <div key={index} className="d-flex justify-content-evenly">
                     {done ?
-                    <p><del>{item}</del></p>:
-                    <p>{item}</p>
+                    <p><del>{item.task}</del></p>:
+                    <p>{item.task}</p>
 }
                     <input 
                         type="checkbox" 
-                        checked={done} 
+                        checked={item.done} 
                         onChange={e => setDone(e.target.checked)} 
                         className="mx-2" 
                     />

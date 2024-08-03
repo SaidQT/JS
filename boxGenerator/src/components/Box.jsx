@@ -7,7 +7,7 @@ const Box = () => {
     const [height, setHeight] = useState(0);
     const [errors, setErrors] = useState([]);
     const [colors, setColors] = useState([]);
-    const [containsErrors, setContainsErrors] = useState(false);
+    const [containsErrors, setContainsErrors] = useState(true);
 
     const handleColor = (e) => {
         setColor(e.target.value);
@@ -17,11 +17,12 @@ const Box = () => {
         else newErrors[0] = "";
         setErrors(newErrors);
         setContainsErrors(newErrors.some(error => error !== ""));
-        console.log(colors)
     }
 
     const handleHeight = (e) => {
         setHeight(e.target.value);
+        console.log(typeof(height))
+        console.log(height)
         let newErrors = [...errors];
         if (height < 50) newErrors[1] = "Height must be at least 50";
         else newErrors[1] = "";
@@ -48,35 +49,38 @@ const Box = () => {
 
     return (
         <div>
-            <form onSubmit={ handleSubmit }>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <div className="d-flex justify-content-around my-1">
                         <label className='mx-1'>Color: </label>
-                        <input type="text" value={color} onChange={ handleColor } />
-                        {
-                            errors[0] && <p>{errors[0]}</p>
-                        }
+                        <input type="text" value={ color } onChange={ handleColor } />
+
                     </div>
+                    {
+                        errors[0] && <p>{errors[0]}</p>
+                    }
                     <div className="d-flex justify-content-around my-1">
                         <label className='mx-1'>Height: </label>
-                        <input type="number" value={height} onChange={ handleHeight } />
-                        {
-                            errors[1] && <p>{errors[1]}</p>
-                        }
+                        <input type="number" value={ height } onChange={ handleHeight } />
+
                     </div>
+                    {
+                        errors[1] && <p>{errors[1]}</p>
+                    }
                     <div className="d-flex justify-content-around my-1">
                         <label className='mx-1'>Width: </label>
-                        <input type="number" value={width} onChange={ handleWidth } />
-                        {
-                            errors[2] && <p>{errors[2]}</p>
-                        }
+                        <input type="number" value={ width } onChange={ handleWidth } />
+
                     </div>
+                    {
+                        errors[2] && <p>{errors[2]}</p>
+                    }
                 </div>
                 <input type="submit" value="Add" disabled={containsErrors} />
             </form>
             <div className='row my-2'>
                 {colors.map((box, index) => (
-                    <StyledBox key={index} backGroundColor={box.color} width={box.width} height={box.height} className="mx-3"></StyledBox>
+                    <StyledBox key={ index } backGroundColor={ box.color } width={ box.width } height={ box.height } className="mx-3"></StyledBox>
                 ))}
             </div>
         </div>
