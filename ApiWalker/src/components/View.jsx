@@ -1,4 +1,3 @@
-import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import {
     Link
@@ -6,15 +5,16 @@ import {
 
 const View = (props) => {
     //Extract the values of category and id using the { useParams } hook.
-    const { category, id } = useParams();
     //This variable is where the fetch data is saved.
     const [resultss, setResultss] = useState([]);
     //If there is an error in fetching, this variable is used to save the error
     const [error, setError] = useState(null);
 
+    const { dataCat, dataID } = props
+
     //This function is used to fetch the api using category and id in the url parameters
     useEffect(() => {
-        fetch(`https://swapi.dev/api/${category}/${id}`)
+        fetch(`https://swapi.dev/api/${dataCat}/${dataID}`)
             .then(response => response.json())
             .then(data => {
                 if (data.results) {
@@ -25,9 +25,10 @@ const View = (props) => {
                 }
             })
             .catch(error => setError(error));
-    }, [category, id]);
+    }, [dataCat, dataID]);
     //This condition specifies the message if there is an error with fetching the data
-    if (error) return <div>These aren't the droids you're looking for</div>;
+    if (error) return <div><p>These aren't the droids you're looking for</p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8SdMp49TSaiAa2B8S2_giTnvPio-bHEppLw&s"></img></div>;
 
 
     return (
@@ -37,7 +38,7 @@ const View = (props) => {
                 resultss.map((result, index) => (
                     <div key={index}>
                         {/* Slice the array to retrieve the values of only the first four keys */}
-                        {category === 'people' ? (
+                        {dataCat === 'people' ? (
                             <>
                                 <p><span className='fw-bold text-capitalize my-3'>Homeworld: </span><Link to={`/${result.homeworld}`}> {result.homeworld}</Link> </p>
                                 {Object.keys(result).slice(0, 4).map((key) => (
@@ -59,7 +60,8 @@ const View = (props) => {
                 ))
             ) : (
                 // If data received was an empty array then return this message 
-                <div>No results found</div>
+                <div><p>These aren't the droids you're looking for</p>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8SdMp49TSaiAa2B8S2_giTnvPio-bHEppLw&s"></img></div>
             )}
         </>
     );

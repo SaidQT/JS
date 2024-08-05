@@ -16,6 +16,7 @@ const Search = (props) => {
     const sendSurvey = (e) => {
         e.preventDefault();
         //The user is navigated to the selected category/ id link in order to fetch the data using the link
+        props.settingURL(selectedCategory,id)
         navigate(`/${selectedCategory}/${id}`)
     }
 
