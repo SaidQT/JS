@@ -1,0 +1,14 @@
+Get requests sent: 
+
+1- https://pokeapi.co/api/v2/pokemon/3
+
+2- https://pokeapi.co/api/v2/pokemon/pikachu
+
+3- https://pokeapi.co/api/v2/pokemon/charizard
+
+4- https://pokeapi.co/api/v2/pokemon/50
+
+5- https://pokeapi.co/api/v2/pokemon/750
+
+
+
