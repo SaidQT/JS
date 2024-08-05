@@ -1,5 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import {
+    Link
+} from "react-router-dom";
 
 const View = (props) => {
     //Extract the values of category and id using the { useParams } hook.
@@ -25,7 +28,7 @@ const View = (props) => {
     }, [category, id]);
     //This condition specifies the message if there is an error with fetching the data
     if (error) return <div>These aren't the droids you're looking for</div>;
-    
+
 
     return (
         <>
@@ -34,9 +37,24 @@ const View = (props) => {
                 resultss.map((result, index) => (
                     <div key={index}>
                         {/* Slice the array to retrieve the values of only the first four keys */}
-                        {Object.keys(result).slice(0,4).map((key) => (
-                            <p key={key}><span className='fw-bold text-capitalize'>{key}: </span>{result[key]}</p>
-                        ))}
+                        {category === 'people' ? (
+                            <>
+                                <p><span className='fw-bold text-capitalize my-3'>Homeworld: </span><Link to={`/${result.homeworld}`}> {result.homeworld}</Link> </p>
+                                {Object.keys(result).slice(0, 4).map((key) => (
+                                    <p key={key}>
+                                        <span className='fw-bold text-capitalize'>{key}: </span>
+                                        {result[key]}
+                                    </p>
+                                ))}
+                            </>
+                        ) : (
+                            Object.keys(result).slice(0, 4).map((key) => (
+                                <p key={key}>
+                                    <span className='fw-bold text-capitalize'>{key}: </span>
+                                    {result[key]}
+                                </p>
+                            ))
+                        )}
                     </div>
                 ))
             ) : (
