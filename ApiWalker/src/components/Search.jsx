@@ -1,17 +1,20 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useNavigate } from  "react-router-dom"
+
 const Search = (props) => {
     const [categories, setCategories] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState("people");
     const [id, setID] = useState(0);
     const navigate = useNavigate()
+    
     //Function to retreive the values of categories and saving them using state
     useEffect(() => {
         fetch('https://swapi.dev/api/')
-            .then(response => response.json())
-            .then(response => setCategories(Object.keys(response)))
+        .then(response => response.json())
+        .then(response => setCategories(Object.keys(response)))
     }, []);
+
     //Function to handle the navigation link after users fill the form
     const sendSurvey = (e) => {
         e.preventDefault();
