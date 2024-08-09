@@ -21,17 +21,17 @@ export default () => {
         <form onSubmit={onSubmitHandler}>
             <p>
                 <label>Title</label><br />
-                <input type="text" onChange={(e) => setTitle(e.target.value)} value={ title } />
+                <input className="form-control" type="text" onChange={(e) => setTitle(e.target.value)} value={ title } />
             </p>
             <p>
                 <label>Price</label><br />
-                <input type="number" onChange={(e) => setPrice(e.target.value)} value={ price } />
+                <input className="form-control" type="number" onChange={(e) => setPrice(e.target.value)} value={ price } />
             </p>
             <p>
                 <label>Description</label><br />
-                <input type="textarea" onChange={(e) => setDescription(e.target.value)} value={ description } />
+                <textarea className="form-control" onChange={(e) => setDescription(e.target.value)} value={ description } />
             </p>
-            <input type="submit" />
+            <input  className="btn btn-primary" type="submit" />
         </form>
     )
 }

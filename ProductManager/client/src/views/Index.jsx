@@ -15,10 +15,13 @@ const Index = () => {
             });
     }, [products]);
 
+    const removeFromDom = productId => {
+        setProducts(products.filter(product => product._id != productId));
+    }
     return (
         <div>
             <ProductForm />
-            <ProductList products = { products } />
+            <ProductList products = { products } removeFromDom={removeFromDom}/>
         </div>
     );
 }
