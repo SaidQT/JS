@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import AuthorForm from '../components/AuthorForm'
 import Header from '../components/Header';
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
 
 const Update = () => {
@@ -9,6 +9,7 @@ const Update = () => {
     const [author, setAuthor] = useState({})
     const [errors, setErrors] = useState("")
     const [loaded,setLoaded]= useState(false)
+    const navigate = useNavigate()
     useEffect(() => {
         axios.get('http://localhost:8000/api/author/' + id)
             .then(res => {
@@ -21,6 +22,7 @@ const Update = () => {
         axios.patch('http://localhost:8000/api/author/' + id, author)
             .then(res => {
                 console.log(res)
+                navigate(-1)
             })
             .catch(err => {
                 const errorResponse = err.response.data.errors;
