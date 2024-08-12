@@ -1,8 +1,6 @@
 
 const Task = (props) => {
-    const tasks = props.task;
-    const update = props.update
-    
+    const {tasks, update} = props;
     return (
         <>
             {tasks.map((item, index) => (
