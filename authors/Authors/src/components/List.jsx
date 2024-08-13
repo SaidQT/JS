@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const List = (props) => {
     return (
         <div>
-          
+
             <table className="table col">
                 <thead>
                     <tr>
@@ -17,8 +17,8 @@ const List = (props) => {
                         <tr key={i}>
                             <td>{author.name}</td>
                             <td>
-                           <Link to={`/author/${author._id}/edit`} className="btn btn-info mx-2 text-white">Edit</Link>
-                                <button className="btn btn-danger" onClick={()=> props.delete(author._id)}>Delete</button>
+                                <Link to={`/author/${author._id}/edit`} className="btn btn-info mx-2 text-white">Edit</Link>
+                                <button className="btn btn-danger" onClick={() => props.delete(author._id)}>Delete</button>
                             </td>
                         </tr>
                     ))}

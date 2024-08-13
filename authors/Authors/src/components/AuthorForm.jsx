@@ -18,7 +18,7 @@ const AuthorForm = (props) => {
           name="name" value={name}
           className='form-control'
           onChange={(e) => { setName(e.target.value) }} />
-        {error.name && <small className="text-danger">{error.name.message}</small>}
+          {error.name && <small className="text-danger">{error.name.message}</small>}
       </p>
 
       <input type="submit" value="Submit" className='btn btn-success' />
