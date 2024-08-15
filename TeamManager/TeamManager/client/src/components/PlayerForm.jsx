@@ -29,7 +29,7 @@ const PlayerForm = (props) => {
                     name="name" value={name}
                     className='form-control'
                     onChange={handleName} />
-                    {error && <small className="text-danger">{error}</small>}
+                {error && <small className="text-danger">{error}</small>}
                 {errors.name && <small className="text-danger">{errors.name.message}</small>}
             </p>
             <p>

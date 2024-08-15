@@ -26,7 +26,7 @@ const Create = (props) => {
             <Box>
                 <PlayerForm errors={errors} onSubmit={createPlayer}></PlayerForm>
             </Box>
-        </>
+        </>  
     )
 }
 
